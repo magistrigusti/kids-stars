@@ -1,13 +1,538 @@
-Error: spawn EPERM
-    at ChildProcess.spawn (node:internal/child_process:420:11)
-    at spawn (node:child_process:753:9)
-    at fork (node:child_process:171:10)
-    at C:\projects\kids-stars\node_modules\next\dist\cli\next-dev.js:253:45
-    at new Promise (<anonymous>)
-    at startServer (C:\projects\kids-stars\node_modules\next\dist\cli\next-dev.js:221:16)
-    at runDevServer (C:\projects\kids-stars\node_modules\next\dist\cli\next-dev.js:355:23)
-    at Module.nextDev (C:\projects\kids-stars\node_modules\next\dist\cli\next-dev.js:363:11) {
-  errno: -4048,
-  code: 'EPERM',
-  syscall: 'spawn'
-}
+⚠ ./app/globals.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[11].use[5]!./app/globals.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/globals.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import './styles/variables.scss'; 
+
+app\globals.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/globals.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[11].use[5]!./app/globals.scss
+./app/globals.scss
+⚠ ./app/globals.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[11].use[5]!./app/globals.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/globals.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import './styles/variables.scss'; 
+
+app\globals.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/globals.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[11].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[11].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[11].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[11].use[5]!./app/globals.scss
+./app/globals.scss
+Telegram OIDC start failed: Error: TELEGRAM_CLIENT_ID is not configured
+    at getTelegramClientId (lib\network\telegramOidc.ts:70:11)
+    at createTelegramOidcSession (lib\network\telegramOidc.ts:105:20)
+    at GET (app\api\auth\telegram\start\route.ts:28:46)
+  68 |
+  69 |   if (!clientId) {
+> 70 |     throw new Error('TELEGRAM_CLIENT_ID is not configured');
+     |           ^
+  71 |   }
+  72 |
+  73 |   return clientId;
+⚠ ./app/components/Hero/Hero.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Hero/Hero.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Hero/Hero.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Hero\Hero.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Hero/Hero.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Hero/Hero.module.scss
+./app/components/Hero/Hero.module.scss
+./app/components/Hero/Hero.tsx
+
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Navigation\Navigation.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -9.5031055901%)
+color.adjust($color, $lightness: -6%)
+
+More info: https://sass-lang.com/d/color-functions
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/page.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/page.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/page.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import './styles/variables';
+
+app\page.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/page.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/page.module.scss
+./app/page.module.scss
+
+./app/components/Hero/Hero.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Hero/Hero.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Hero\Hero.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Hero/Hero.module.scss
+./app/components/Hero/Hero.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Navigation\Navigation.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -9.5031055901%)
+color.adjust($color, $lightness: -6%)
+
+More info: https://sass-lang.com/d/color-functions
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/page.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/page.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import './styles/variables';
+
+app\page.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/page.module.scss
+./app/page.tsx
+[browser] ./app/components/Hero/Hero.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Hero/Hero.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Hero/Hero.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Hero\Hero.module.scss 1:9  root stylesheet
+[browser] ./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Navigation\Navigation.module.scss 1:9  root stylesheet
+[browser] ./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+[browser] ./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -9.5031055901%)
+color.adjust($color, $lightness: -6%)
+
+More info: https://sass-lang.com/d/color-functions
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+[browser] ./app/page.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/page.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/page.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import './styles/variables';
+
+app\page.module.scss 1:9  root stylesheet
+[browser] Clerk: Clerk has been loaded with development keys. Development instances have strict usage limits and should not be used when deploying your application to production. Learn more: https://clerk.com/docs/deployments/overview (https://desired-quagga-52.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js:12:6086)
+[browser] Image with src "/images/classes/classes-00.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/images/classes/classes-01.jpg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/images/classes/classes-02.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+⚠ ./app/components/Hero/Hero.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Hero/Hero.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Hero/Hero.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Hero\Hero.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Hero/Hero.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Hero/Hero.module.scss
+./app/components/Hero/Hero.module.scss
+./app/components/Hero/Hero.tsx
+
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Navigation\Navigation.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -9.5031055901%)
+color.adjust($color, $lightness: -6%)
+
+More info: https://sass-lang.com/d/color-functions
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/page.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/page.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/page.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import './styles/variables';
+
+app\page.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/page.module.scss.webpack[javascript/auto]!=!./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[15].oneOf[7].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[15].oneOf[7].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[15].oneOf[7].use[5]!./app/page.module.scss
+./app/page.module.scss
+
+./app/components/Hero/Hero.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Hero/Hero.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Hero\Hero.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Hero/Hero.module.scss
+./app/components/Hero/Hero.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Navigation\Navigation.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -9.5031055901%)
+color.adjust($color, $lightness: -6%)
+
+More info: https://sass-lang.com/d/color-functions
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/page.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/page.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import './styles/variables';
+
+app\page.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/page.module.scss
+./app/page.tsx
+⚠ ./app/components/Hero/Hero.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Hero/Hero.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Hero\Hero.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Hero/Hero.module.scss
+./app/components/Hero/Hero.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Navigation\Navigation.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -9.5031055901%)
+color.adjust($color, $lightness: -6%)
+
+More info: https://sass-lang.com/d/color-functions
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/page.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/page.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import './styles/variables';
+
+app\page.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/page.module.scss
+./app/page.tsx
+⚠ ./app/components/Hero/Hero.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Hero/Hero.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Hero\Hero.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Hero/Hero.module.scss
+./app/components/Hero/Hero.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import '../../styles/variables';
+
+app\components\Navigation\Navigation.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.adjust instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/components/Navigation/Navigation.module.scss
+Deprecation Warning on line 266, column 16 of file:///C:/projects/kids-stars/app/components/Navigation/Navigation.module.scss:266:16:
+darken() is deprecated. Suggestions:
+
+color.scale($color, $lightness: -9.5031055901%)
+color.adjust($color, $lightness: -6%)
+
+More info: https://sass-lang.com/d/color-functions
+
+266 |     background: darken($color-orange, 6%);
+
+app\components\Navigation\Navigation.module.scss 267:17  root stylesheet
+
+Import trace for requested module:
+./app/components/Navigation/Navigation.module.scss
+./app/components/Navigation/Navigation.tsx
+
+./app/page.module.scss
+Deprecation Warning on line 0, column 8 of file:///C:/projects/kids-stars/app/page.module.scss:0:8:
+Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+0 | @import './styles/variables';
+
+app\page.module.scss 1:9  root stylesheet
+
+Import trace for requested module:
+./app/page.module.scss
+./app/page.tsx

@@ -1,4 +1,16 @@
+▲ Next.js 16.2.9 (webpack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.243:3000
+- Environments: .env
+✓ Ready in 380ms
 
-> kids-stars@0.1.0 dev
-> next dev
-
+○ Compiling /login/[[...login]] ...
+ GET /login 200 in 284ms (next.js: 26ms, proxy.ts: 163ms, application-code: 94ms)
+ GET /api/auth/telegram/start 307 in 1800ms (next.js: 1635ms, proxy.ts: 23ms, application-code: 142ms)
+ GET /api/network/profile 401 in 1746ms (next.js: 1186ms, proxy.ts: 526ms, application-code: 34ms)
+ GET /login 200 in 970ms (next.js: 178ms, proxy.ts: 25ms, application-code: 767ms)
+○ Compiling / ...
+ GET / 200 in 6.4s (next.js: 5.9s, proxy.ts: 35ms, application-code: 431ms)
+ GET /api/network/profile 401 in 1644ms (next.js: 1509ms, proxy.ts: 76ms, application-code: 58ms)
+ GET /login 200 in 442ms (next.js: 115ms, proxy.ts: 21ms, application-code: 306ms)
+ GET /login/SignIn_clerk_catchall_check_1781418000547 200 in 695ms (next.js: 21ms, proxy.ts: 17ms, application-code: 657ms)

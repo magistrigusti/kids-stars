@@ -54,7 +54,11 @@ export default function ParentsZone() {
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState('0:00');
   const audioRef = useRef<HTMLAudioElement>(null);
-  const loadedTrackIdRef = useRef(activeTrackId);
+  const loadedTrackIdRef = useRef<ParentsMeditationTrackId | null>(null);
+  const playRequestIdRef = useRef(0);
+  const preloadAudioRefs = useRef<
+    Partial<Record<ParentsMeditationTrackId, HTMLAudioElement>>
+  >({});
 
   const activeTrack = useMemo(() => (
     PARENTS_MEDITATION_TRACKS.find(track => track.id === activeTrackId)
@@ -64,14 +68,18 @@ export default function ParentsZone() {
   useEffect(() => {
     const audio = audioRef.current;
 
-    if (!audio) {
+    if (activeTab !== 'meditation' || !audio) {
       return;
     }
 
     if (!isPlaying) {
+      playRequestIdRef.current += 1;
       audio.pause();
       return;
     }
+
+    const playRequestId = playRequestIdRef.current + 1;
+    playRequestIdRef.current = playRequestId;
 
     if (loadedTrackIdRef.current !== activeTrack.id) {
       audio.load();
@@ -79,13 +87,43 @@ export default function ParentsZone() {
     }
 
     void audio.play().catch(() => {
-      setIsPlaying(false);
+      if (playRequestIdRef.current !== playRequestId) {
+        return;
+      }
+
+      // Сохраняем намерение игрока слушать трек: браузер может оборвать play
+      // при load/src, но кнопка трека не должна сама откатывать состояние.
     });
-  }, [activeTrack.id, isPlaying]);
+  }, [activeTab, activeTrack.id, isPlaying]);
+
+  useEffect(() => {
+    if (activeTab !== 'meditation') {
+      return;
+    }
+
+    PARENTS_MEDITATION_TRACKS.forEach(track => {
+      if (preloadAudioRefs.current[track.id]) {
+        return;
+      }
+
+      const preloadAudio = new Audio(track.source);
+      preloadAudio.preload = 'auto';
+      preloadAudio.load();
+      preloadAudioRefs.current[track.id] = preloadAudio;
+    });
+  }, [activeTab]);
 
   const handleTrackClick = (trackId: ParentsMeditationTrackId) => {
     if (activeTrackId === trackId) {
-      setIsPlaying(currentValue => !currentValue);
+      const audio = audioRef.current;
+
+      if (audio?.ended) {
+        audio.currentTime = 0;
+        setCurrentTime('0:00');
+        setProgress(0);
+      }
+
+      setIsPlaying(true);
       return;
     }
 
@@ -93,6 +131,15 @@ export default function ParentsZone() {
     setCurrentTime('0:00');
     setProgress(0);
     setIsPlaying(true);
+  };
+
+  const handlePlayerToggle = () => {
+    if (isPlaying) {
+      setIsPlaying(false);
+      return;
+    }
+
+    handleTrackClick(activeTrack.id);
   };
 
   const handleTimeUpdate = () => {
@@ -250,7 +297,7 @@ export default function ParentsZone() {
                   <button
                     type="button"
                     className={s.playerButton}
-                    onClick={() => handleTrackClick(activeTrack.id)}
+                    onClick={handlePlayerToggle}
                     aria-label={isPlaying ? 'Поставить медитацию на паузу' : 'Включить медитацию'}
                   >
                     {isPlaying ? <IoPause /> : <IoPlay />}

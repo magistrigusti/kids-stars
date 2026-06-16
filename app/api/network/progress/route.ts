@@ -30,7 +30,7 @@ export async function GET() {
   return NextResponse.json({ progress });
 }
 
-export async function PUT(request: Request) {
+async function saveProgressRequest(request: Request) {
   const user = await currentUser();
   const portalUser = await getKingStarsPortalSession();
   const profile = await syncKingStarsNetworkUser({
@@ -51,4 +51,12 @@ export async function PUT(request: Request) {
   );
 
   return NextResponse.json({ progress: savedProgress });
+}
+
+export async function PUT(request: Request) {
+  return saveProgressRequest(request);
+}
+
+export async function POST(request: Request) {
+  return saveProgressRequest(request);
 }

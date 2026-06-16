@@ -619,6 +619,10 @@ export async function syncKingStarsNetworkUser(input: {
   clerkUser: ClerkUserLike | null;
   portalUser: KingStarsPortalUser | null;
 }): Promise<NetworkUserProfile | null> {
+  if (input.clerkUser) {
+    return syncClerkNetworkUser(input.clerkUser);
+  }
+
   if (input.portalUser) {
     if (input.portalUser.source === 'telegram') {
       return syncTelegramNetworkUser({
@@ -632,10 +636,6 @@ export async function syncKingStarsNetworkUser(input: {
     }
 
     return syncPortalNetworkUser(input.portalUser);
-  }
-
-  if (input.clerkUser) {
-    return syncClerkNetworkUser(input.clerkUser);
   }
 
   return null;

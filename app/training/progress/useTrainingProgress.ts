@@ -39,13 +39,32 @@ function sumBreathingByExercise(breathingByExercise: Record<string, number>): nu
   return Object.values(breathingByExercise).reduce((sum, seconds) => sum + seconds, 0);
 }
 
-function readProgress(): TrainingProgress {
+interface NetworkProfileResponse {
+  profile?: {
+    networkUserId?: string;
+    email?: string | null;
+  };
+}
+
+function getProgressStorageKey(accountId: string): string {
+  return `${STORAGE_KEY}:${accountId}`;
+}
+
+function getProfileAccountId(profile: NetworkProfileResponse['profile']): string | null {
+  return (
+    profile?.networkUserId
+    ?? profile?.email?.trim().toLowerCase()
+    ?? null
+  );
+}
+
+function readProgress(storageKey: string): TrainingProgress {
   if (typeof window === 'undefined') {
     return EMPTY_PROGRESS;
   }
 
   try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const raw = window.localStorage.getItem(storageKey);
     if (!raw) {
       return EMPTY_PROGRESS;
     }
@@ -70,18 +89,34 @@ function readProgress(): TrainingProgress {
   }
 }
 
+function saveRemoteProgress(progress: TrainingProgress, method: 'PUT' | 'POST' = 'PUT') {
+  return fetch('/api/network/progress', {
+    method,
+    keepalive: true,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ progress }),
+  });
+}
+
 export function useTrainingProgress() {
   const { isLoaded, isSignedIn, user } = useUser();
-  const [progress, setProgress] = useState<TrainingProgress>(readProgress);
+  const [progress, setProgress] = useState<TrainingProgress>(EMPTY_PROGRESS);
+  const [progressStorageKey, setProgressStorageKey] = useState<string | null>(null);
   const [remoteReady, setRemoteReady] = useState(false);
   const [remoteProgressLoaded, setRemoteProgressLoaded] = useState(false);
   const [networkSignedIn, setNetworkSignedIn] = useState(false);
 
   useEffect(() => {
+    if (!progressStorageKey) {
+      return;
+    }
+
     try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      window.localStorage.setItem(progressStorageKey, JSON.stringify(progress));
     } catch {}
-  }, [progress]);
+  }, [progress, progressStorageKey]);
 
   useEffect(() => {
     if (!isLoaded) {
@@ -99,12 +134,30 @@ export function useTrainingProgress() {
         });
 
         if (!profileResponse.ok) {
+          setProgress(EMPTY_PROGRESS);
+          setProgressStorageKey(null);
           setNetworkSignedIn(false);
           setRemoteReady(false);
           setRemoteProgressLoaded(false);
           return;
         }
 
+        const profileData = await profileResponse.json() as NetworkProfileResponse;
+        const accountId = getProfileAccountId(profileData.profile);
+
+        if (!accountId) {
+          setProgress(EMPTY_PROGRESS);
+          setProgressStorageKey(null);
+          setNetworkSignedIn(false);
+          setRemoteProgressLoaded(false);
+          return;
+        }
+
+        const userStorageKey = getProgressStorageKey(accountId);
+        const localProgress = readProgress(userStorageKey);
+
+        setProgressStorageKey(userStorageKey);
+        setProgress(localProgress);
         setNetworkSignedIn(true);
 
         const response = await fetch('/api/network/progress', {
@@ -113,7 +166,8 @@ export function useTrainingProgress() {
         });
 
         if (!response.ok) {
-          setRemoteProgressLoaded(false);
+          setProgress(localProgress);
+          setRemoteProgressLoaded(true);
           return;
         }
 
@@ -121,12 +175,12 @@ export function useTrainingProgress() {
         const remoteProgress = sanitizeTrainingProgress(data.progress);
 
         if (!cancelled) {
-          setProgress(prev => mergeTrainingProgress(prev, remoteProgress));
+          setProgress(mergeTrainingProgress(localProgress, remoteProgress));
           setRemoteProgressLoaded(true);
         }
       } catch {
         if (!cancelled) {
-          setRemoteProgressLoaded(false);
+          setRemoteProgressLoaded(true);
         }
       } finally {
         if (!cancelled) {
@@ -135,6 +189,9 @@ export function useTrainingProgress() {
       }
     }
 
+    setProgress(EMPTY_PROGRESS);
+    setProgressStorageKey(null);
+    setNetworkSignedIn(false);
     setRemoteReady(false);
     setRemoteProgressLoaded(false);
     loadRemoteProgress();
@@ -151,17 +208,35 @@ export function useTrainingProgress() {
     }
 
     const timeoutId = window.setTimeout(() => {
-      fetch('/api/network/progress', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ progress }),
-      }).catch(() => {});
+      saveRemoteProgress(progress).catch(() => {});
     }, SYNC_DELAY_MS);
 
     return () => {
       window.clearTimeout(timeoutId);
+    };
+  }, [isLoaded, networkSignedIn, progress, remoteProgressLoaded, remoteReady]);
+
+  useEffect(() => {
+    if (!isLoaded || !networkSignedIn || !remoteReady || !remoteProgressLoaded) {
+      return;
+    }
+
+    const flushProgress = () => {
+      saveRemoteProgress(progress, 'POST').catch(() => {});
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        flushProgress();
+      }
+    };
+
+    window.addEventListener('pagehide', flushProgress);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener('pagehide', flushProgress);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, [isLoaded, networkSignedIn, progress, remoteProgressLoaded, remoteReady]);
 

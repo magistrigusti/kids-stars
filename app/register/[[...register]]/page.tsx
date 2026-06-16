@@ -1,7 +1,13 @@
 import { SignUp } from '@clerk/nextjs';
 import AuthTelegramAccess from '@/app/components/AuthTelegramAccess/AuthTelegramAccess';
 
-export const dynamic = 'force-dynamic';
+export function generateStaticParams() {
+  return [
+    {
+      register: [],
+    },
+  ];
+}
 
 export default function RegisterPage() {
   return (

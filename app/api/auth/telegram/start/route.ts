@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createTelegramOidcSession } from '@/lib/network/telegramOidc';
 
 export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
 
 const TELEGRAM_STATE_COOKIE = 'kingstars_telegram_state';
 const TELEGRAM_NONCE_COOKIE = 'kingstars_telegram_nonce';

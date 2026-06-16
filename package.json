@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build",
+    "postbuild": "node scripts/render-static-export.mjs",
     "start": "next start",
     "lint": "eslint",
     "cf:build": "opennextjs-cloudflare build",

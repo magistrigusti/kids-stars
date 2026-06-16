@@ -8,7 +8,6 @@ import { completeTelegramOidcLogin } from '@/lib/network/telegramOidc';
 import { syncTelegramNetworkUser } from '@/lib/network/users';
 
 export const runtime = 'nodejs';
-export const dynamic = 'force-dynamic';
 
 const TELEGRAM_STATE_COOKIE = 'kingstars_telegram_state';
 const TELEGRAM_NONCE_COOKIE = 'kingstars_telegram_nonce';

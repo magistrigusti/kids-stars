@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: kids-stars
+    runtime: node
+    buildCommand: npm ci && npm run build:server
+    startCommand: npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: NETWORK_MONGODB_DB
+        value: portal
+      - key: NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+        sync: false
+      - key: CLERK_SECRET_KEY
+        sync: false
+      - key: MONGODB_URL
+        sync: false
+      - key: KINGSTARS_SESSION_SECRET
+        sync: false

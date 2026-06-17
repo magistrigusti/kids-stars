@@ -9,6 +9,7 @@ import {
 import type { TrainingProgress } from './types';
 
 const STORAGE_KEY = 'training-zone-progress-v1';
+const LOCAL_ACCOUNT_ID = 'local-browser';
 const SYNC_DELAY_MS = 1200;
 
 const EMPTY_PROGRESS: TrainingProgress = {
@@ -48,6 +49,10 @@ interface NetworkProfileResponse {
 
 function getProgressStorageKey(accountId: string): string {
   return `${STORAGE_KEY}:${accountId}`;
+}
+
+function getLocalProgressStorageKey(userId: string | null | undefined): string {
+  return getProgressStorageKey(userId ? `clerk:${userId}` : LOCAL_ACCOUNT_ID);
 }
 
 function getProfileAccountId(profile: NetworkProfileResponse['profile']): string | null {
@@ -125,6 +130,16 @@ export function useTrainingProgress() {
 
     const controller = new AbortController();
     let cancelled = false;
+    const localStorageKey = getLocalProgressStorageKey(
+      isSignedIn ? user?.id : null,
+    );
+    const localProgress = readProgress(localStorageKey);
+
+    setProgress(localProgress);
+    setProgressStorageKey(localStorageKey);
+    setNetworkSignedIn(false);
+    setRemoteReady(false);
+    setRemoteProgressLoaded(false);
 
     async function loadRemoteProgress() {
       try {
@@ -134,11 +149,9 @@ export function useTrainingProgress() {
         });
 
         if (!profileResponse.ok) {
-          setProgress(EMPTY_PROGRESS);
-          setProgressStorageKey(null);
-          setNetworkSignedIn(false);
-          setRemoteReady(false);
-          setRemoteProgressLoaded(false);
+          if (!cancelled) {
+            setRemoteProgressLoaded(true);
+          }
           return;
         }
 
@@ -146,18 +159,20 @@ export function useTrainingProgress() {
         const accountId = getProfileAccountId(profileData.profile);
 
         if (!accountId) {
-          setProgress(EMPTY_PROGRESS);
-          setProgressStorageKey(null);
-          setNetworkSignedIn(false);
-          setRemoteProgressLoaded(false);
+          if (!cancelled) {
+            setRemoteProgressLoaded(true);
+          }
           return;
         }
 
         const userStorageKey = getProgressStorageKey(accountId);
-        const localProgress = readProgress(userStorageKey);
+        const accountProgress = mergeTrainingProgress(
+          localProgress,
+          readProgress(userStorageKey),
+        );
 
         setProgressStorageKey(userStorageKey);
-        setProgress(localProgress);
+        setProgress(prev => mergeTrainingProgress(prev, accountProgress));
         setNetworkSignedIn(true);
 
         const response = await fetch('/api/network/progress', {
@@ -166,7 +181,7 @@ export function useTrainingProgress() {
         });
 
         if (!response.ok) {
-          setProgress(localProgress);
+          setProgress(prev => mergeTrainingProgress(prev, accountProgress));
           setRemoteProgressLoaded(true);
           return;
         }
@@ -175,7 +190,10 @@ export function useTrainingProgress() {
         const remoteProgress = sanitizeTrainingProgress(data.progress);
 
         if (!cancelled) {
-          setProgress(mergeTrainingProgress(localProgress, remoteProgress));
+          setProgress(prev => mergeTrainingProgress(
+            mergeTrainingProgress(prev, accountProgress),
+            remoteProgress,
+          ));
           setRemoteProgressLoaded(true);
         }
       } catch {
@@ -189,11 +207,6 @@ export function useTrainingProgress() {
       }
     }
 
-    setProgress(EMPTY_PROGRESS);
-    setProgressStorageKey(null);
-    setNetworkSignedIn(false);
-    setRemoteReady(false);
-    setRemoteProgressLoaded(false);
     loadRemoteProgress();
 
     return () => {

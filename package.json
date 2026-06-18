@@ -8,6 +8,7 @@
     "build:server": "next build",
     "build:static": "next build && node scripts/render-static-export.mjs",
     "start": "next start",
+    "test": "node tests/meditation-audio-assets.test.mjs",
     "lint": "eslint",
     "cf:build": "opennextjs-cloudflare build",
     "cf:deploy": "npm run cf:build && opennextjs-cloudflare deploy",

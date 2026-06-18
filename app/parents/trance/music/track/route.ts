@@ -87,7 +87,13 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Track not found' }, { status: 404 });
   }
 
-  const filePath = path.join(process.cwd(), 'app', 'parents', 'trance', 'music', fileName);
+  const filePath = path.join(
+    process.cwd(),
+    'public',
+    'audio',
+    'meditations',
+    fileName,
+  );
   const fileStats = await stat(filePath).catch(() => null);
 
   if (!fileStats?.isFile()) {

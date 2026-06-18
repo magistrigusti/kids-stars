@@ -5,6 +5,7 @@ import test from 'node:test';
 
 const projectRoot = path.resolve(import.meta.dirname, '..');
 const parentsContentPath = path.join(projectRoot, 'app', 'parents', 'parentsContent.ts');
+const packageJsonPath = path.join(projectRoot, 'package.json');
 
 const expectedTracks = [
   'day.mp3',
@@ -39,5 +40,15 @@ test('медитации используют доступные статиче�
     parentsContent,
     /\/parents\/trance\/music\/track/,
     'Плеер медитаций не должен зависеть от серверного Route Handler',
+  );
+});
+
+test('обычная сборка Render создаёт каталог статической публикации', async () => {
+  const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf8'));
+
+  assert.equal(
+    packageJson.scripts?.postbuild,
+    'node scripts/render-static-export.mjs',
+    'После npm run build должен запускаться экспорт в каталог out',
   );
 });
